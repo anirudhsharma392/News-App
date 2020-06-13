@@ -6,28 +6,40 @@ part 'central_state.g.dart';
 class CentralState = CentralStateBase with _$CentralState;
 
 abstract class CentralStateBase with Store {
-
-  ///news data of particular category
+  ///Horizontal news fields
+  ///News data of particular category
+  @observable
   NewsData horizontalViewNewsData;
+
   ///list of available categories
-  List category = ["Business", "Sports", "Entertainment", "Fashion","Industry"];
+  final List category = [
+    "Business",
+    "Sports",
+    "Entertainment",
+    "Fashion",
+    "Industry"
+  ];
   //holds the value of selected category
   @observable
-  String selectedCategory;
+  String selectedCategory = "Business";
+
+  ///Vertical news fields
+  @observable
+  NewsData verticalViewNewsData;
+
 
   ///searching news variables
 
   @observable
-  String searchField="";
+  String searchField = "";
   @observable
-  String searchStatus="loading";
+  String searchStatus = "loading";
   NewsData searchData;
   @observable
   bool enableSearch;
 }
 
 CentralState centralState = new CentralState();
-
 
 ///RUN TO REFRESH
 ///if you update state management variable

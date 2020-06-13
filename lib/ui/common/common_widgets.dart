@@ -30,3 +30,20 @@ class ErrorScreen extends StatelessWidget {
     );
   }
 }
+
+
+class Footer extends StatelessWidget {
+  final String author;
+  final String date;
+  Footer({this.date,this.author});
+  @override
+  Widget build(BuildContext context) {
+    return    Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Expanded(child: Text(author??"", style: labelStyle,overflow: TextOverflow.ellipsis,)),
+        Expanded(child: Text(date??"", style: labelStyle,textAlign: TextAlign.end,)),
+      ],
+    );
+  }
+}

@@ -9,6 +9,23 @@ part of 'central_state.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$CentralState on CentralStateBase, Store {
+  final _$horizontalViewNewsDataAtom =
+      Atom(name: 'CentralStateBase.horizontalViewNewsData');
+
+  @override
+  NewsData get horizontalViewNewsData {
+    _$horizontalViewNewsDataAtom.reportRead();
+    return super.horizontalViewNewsData;
+  }
+
+  @override
+  set horizontalViewNewsData(NewsData value) {
+    _$horizontalViewNewsDataAtom
+        .reportWrite(value, super.horizontalViewNewsData, () {
+      super.horizontalViewNewsData = value;
+    });
+  }
+
   final _$selectedCategoryAtom =
       Atom(name: 'CentralStateBase.selectedCategory');
 
@@ -73,6 +90,7 @@ mixin _$CentralState on CentralStateBase, Store {
   @override
   String toString() {
     return '''
+horizontalViewNewsData: ${horizontalViewNewsData},
 selectedCategory: ${selectedCategory},
 searchField: ${searchField},
 searchStatus: ${searchStatus},

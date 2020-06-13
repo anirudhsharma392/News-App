@@ -26,7 +26,7 @@ class NewsCardHorizontal extends StatelessWidget {
   ///Url for more information of the news
   final String url;
 
-  ///simply contains contentin string format(not html) also will scroll if it's too big
+  ///simply contains content in string format(not html) also will scroll if it's too big
   final String content;
 
   NewsCardHorizontal(
@@ -39,18 +39,14 @@ class NewsCardHorizontal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OpenContainer(
-      closedShape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(0)),
-      ),
-
-      transitionType: ContainerTransitionType.fade,
+      transitionType: ContainerTransitionType.fadeThrough,
       transitionDuration: const Duration(milliseconds: 500),
 
       openBuilder: (context, action) {
-        return NewsCardOpened(title: title,image: image,date:date,url:url,content: content,);
+        return NewsCardOpened(title: title,image: image,date:date,url:url,content: content,author: author,);
       },
       closedBuilder: (context, action) {
-        return NewsCardClosed(title: title,image: image,date:date,);
+        return NewsCardClosed(title: title,image: image,date:date,author: author,);
       },
     );
   }

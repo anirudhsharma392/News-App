@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/theme/style.dart';
+import 'package:news_app/ui/common/common_widgets.dart';
 
 class NewsCardClosed extends StatelessWidget {
   ///main title
@@ -67,13 +68,7 @@ class NewsCardClosed extends StatelessWidget {
                         SizedBox(
                           height: cardMargin,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(author, style: labelStyle),
-                            Text(date, style: labelStyle),
-                          ],
-                        ),
+                     Footer(author: author,date: date,)
                       ],
                     ),
                   ),

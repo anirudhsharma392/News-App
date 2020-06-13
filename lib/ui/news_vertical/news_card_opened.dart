@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/theme/style.dart';
+import 'package:news_app/ui/common/common_widgets.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NewsCardOpened extends StatelessWidget {
   ///main title
@@ -28,6 +30,15 @@ class NewsCardOpened extends StatelessWidget {
       this.author = "",
       this.url,
       this.content = ""});
+
+  _launchURL() async {
+    if (await canLaunch(url)) {
+      await launch(url,forceWebView: true);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final Size _size = MediaQuery.of(context).size;
@@ -50,6 +61,7 @@ class NewsCardOpened extends StatelessWidget {
             Container(
               height: 30,
               decoration: BoxDecoration(
+                  color: white,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(cardRadius * 10),
                       topRight: Radius.circular(cardRadius * 10))),
@@ -85,7 +97,7 @@ class NewsCardOpened extends StatelessWidget {
                       height: cardMargin * 4,
                     ),
                     Container(
-                      height: _size.height * 0.4,
+                      height: _size.height * 0.3,
                       child: SingleChildScrollView(
                         child: Text(
                           content,
@@ -98,19 +110,14 @@ class NewsCardOpened extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.symmetric(vertical: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(author, style: labelStyle),
-                      Text(date, style: labelStyle),
-                    ],
-                  ),
+                  child:Footer(author: author,date: date,)
                 ),
               ],
             ),
           ),
         ),
         GestureDetector(
+            onTap: _launchURL,
             child: Container(
                 height: 40,
                 decoration: BoxDecoration(

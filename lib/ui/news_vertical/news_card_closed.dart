@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/theme/style.dart';
 import 'package:animations/animations.dart';
+import 'package:news_app/ui/common/common_widgets.dart';
 
 class NewsCardClosed extends StatelessWidget {
   ///main title
@@ -33,25 +34,27 @@ class NewsCardClosed extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                image!=null?ClipRRect(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(cardRadius),
-                      bottomLeft: Radius.circular(cardRadius)),
-                  child: Image.network(
-                    image,
-                    width: cardHeight,
-                    fit: BoxFit.cover,
-                  ),
-                ):ClipRRect(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(cardRadius),
-                      bottomLeft: Radius.circular(cardRadius)),
-                  child: Image.network(
-                    noDataImage,
-                    width: cardHeight,
-                    fit: BoxFit.cover,
-                  ),
-                ),
+                image != null
+                    ? ClipRRect(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(cardRadius),
+                            bottomLeft: Radius.circular(cardRadius)),
+                        child: Image.network(
+                          image,
+                          width: cardHeight,
+                          fit: BoxFit.cover,
+                        ),
+                      )
+                    : ClipRRect(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(cardRadius),
+                            bottomLeft: Radius.circular(cardRadius)),
+                        child: Image.network(
+                          noDataImage,
+                          width: cardHeight,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                 Expanded(
                   child: Container(
                     margin: EdgeInsets.all(cardMargin * 2),
@@ -59,19 +62,16 @@ class NewsCardClosed extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
-                          child: Text(title,
+                          child: Text(title ?? "",
                               overflow: TextOverflow.fade, style: bodyStyle),
                         ),
                         SizedBox(
                           height: cardMargin,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(author, style: labelStyle),
-                            Text(date, style: labelStyle),
-                          ],
-                        ),
+                        Footer(
+                          author: author,
+                          date: date,
+                        )
                       ],
                     ),
                   ),

@@ -12,3 +12,4 @@ class Utils{
     }
   }
 }
+final Utils utils = new Utils();

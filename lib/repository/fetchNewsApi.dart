@@ -5,13 +5,29 @@ import 'package:http/http.dart' as http;
 //returns data if fetched successfully
 //returns 0 if caught some error
 class FetchNewsApi {
-  Future fetchNews({
-    apiKey = "965c54eb236a47f2b73b2d5b1b102388",
-    search,
-  }) async {
-    final String _url =
-        "http://newsapi.org/v2/everything?q=$search&from=2020-06-12&to=2020-06-12&sortBy=popularity&apiKey=$apiKey";
+  final String _country = "in";
+  Future fetchNews(
+      {apiKey = "965c54eb236a47f2b73b2d5b1b102388",
+      search,
+      sortBy,
+      source}) async {
+    String _url =
+        "http://newsapi.org/v2/everything?q=$search&country=$_country";
 
+    ///appends each filter acc to the availability
+
+    if (sortBy != null) {
+      _url += "&sortBy=$sortBy";
+    }
+    if (source != null) {
+      _url += "&sources=$source";
+    }
+
+    if (apiKey == null) {
+      throw Exception(["API cannot be accessed"]);
+    } else {
+      _url += "&apiKey=$apiKey";
+    }
     //calling the http get function here
     try {
       var response = await http.get(_url);
@@ -31,12 +47,23 @@ class FetchNewsApi {
 
   Future fetchHeadLines({
     apiKey = "965c54eb236a47f2b73b2d5b1b102388",
-    category = "business",
-    country = "us",
+    category,
+    source,
   }) async {
-    final String _url =
-        "http://newsapi.org/v2/top-headlines?country=$country&category=$category&apiKey=$apiKey";
+    String _url = "http://newsapi.org/v2/top-headlines?country=$_country";
 
+    ///appends each filter acc to the availability
+    if (category != null) {
+      _url += "&category=$category";
+    }
+    if (source != null) {
+      _url += "&sources=$source";
+    }
+    if (apiKey == null) {
+      throw Exception(["API cannot be accessed"]);
+    } else {
+      _url += "&apiKey=$apiKey";
+    }
     //calling the http get function here
     try {
       var response = await http.get(_url);
