@@ -6,13 +6,12 @@ import 'package:http/http.dart' as http;
 //returns 0 if caught some error
 class FetchNewsApi {
   final String _country = "in";
-  Future fetchNews(
-      {apiKey = "965c54eb236a47f2b73b2d5b1b102388",
-      search,
-      sortBy,
-      source}) async {
-    String _url =
-        "http://newsapi.org/v2/everything?q=$search";
+  static const _apiKey = "9d3dbcee50b54514ba1a76f502039d1b";
+
+  ///fetches news of every type available
+  ///also can be sorted
+  Future fetchNews({apiKey = _apiKey, search, sortBy, source}) async {
+    String _url = "http://newsapi.org/v2/everything?q=$search";
 
     ///appends each filter acc to the availability
 
@@ -46,8 +45,9 @@ class FetchNewsApi {
     }
   }
 
+  ///Fetches only headline
   Future fetchHeadLines({
-    apiKey = "965c54eb236a47f2b73b2d5b1b102388",
+    apiKey = _apiKey,
     category,
     source,
   }) async {
@@ -60,7 +60,6 @@ class FetchNewsApi {
     if (source != null) {
       _url += "sources=$source";
     } else {
-
       _url += "country=$_country";
       if (category != null) {
         _url += "&category=$category";
@@ -91,7 +90,7 @@ class FetchNewsApi {
   }
 
   Future fetchSources({
-    apiKey = "965c54eb236a47f2b73b2d5b1b102388",
+    apiKey = _apiKey,
     language = "en",
   }) async {
     String _url = "https://newsapi.org/v2/sources?";

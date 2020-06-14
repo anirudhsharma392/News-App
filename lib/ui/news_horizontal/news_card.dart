@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:news_app/theme/style.dart';
 import 'package:news_app/ui/news_horizontal/news_card_closed.dart';
-import 'package:news_app/ui/news_vertical/news_card_opened.dart';
+import 'package:news_app/ui/common/news_card_opened.dart';
 
 
 ///square card available for the trending news
@@ -41,7 +41,8 @@ class NewsCardHorizontal extends StatelessWidget {
     return OpenContainer(
       transitionType: ContainerTransitionType.fadeThrough,
       transitionDuration: transitionDuration,
-
+      openElevation: 0,
+      closedElevation: 0,
       openBuilder: (context, action) {
         return NewsCardOpened(title: title,image: image,date:date,url:url,content: content,author: author,);
       },

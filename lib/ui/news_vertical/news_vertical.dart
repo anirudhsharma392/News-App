@@ -20,11 +20,13 @@ class _VerticalViewState extends State<VerticalView> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
     _fetchAllSources();
   }
 
-  //stores value in the state at the beginning
+  //stores all the sources available in the state at the beginning
   _fetchAllSources() {
+
     FetchNewsApi()
       ..fetchSources().then((value) {
         if (value != null && value != 0) {
@@ -35,6 +37,7 @@ class _VerticalViewState extends State<VerticalView> {
 
   @override
   Widget build(BuildContext context) {
+
     return Column(
       children: [
         Header(),
@@ -42,31 +45,31 @@ class _VerticalViewState extends State<VerticalView> {
           builder: (_) {
             return centralState.verticalViewNewsData == null
                 ? Container(
-                    height: cardHeight * 2.1,
-                    width: cardHeight,
-                    child: Center(child: CircularProgressIndicator()),
-                  )
+              height: cardHeight * 2.1,
+              width: cardHeight,
+              child: Center(child: CircularProgressIndicator()),
+            )
                 : Column(
-                    children: [
-                      for (int i = 0;
-                          i < centralState.verticalViewNewsData.articles.length;
-                          i++)
-                        NewsCardVertical(
-                          title: centralState
-                              .verticalViewNewsData.articles[i].title,
-                          image: centralState
-                              .verticalViewNewsData.articles[i].urlToImage,
-                          date: utils.parseDateTime(centralState
-                              .verticalViewNewsData.articles[i].publishedAt),
-                          author: centralState
-                              .verticalViewNewsData.articles[i].author,
-                          url:
-                              centralState.verticalViewNewsData.articles[i].url,
-                          content: centralState
-                              .verticalViewNewsData.articles[i].content,
-                        ),
-                    ],
-                  );
+              children: [
+                for (int i = 0;
+                i < centralState.verticalViewNewsData.articles.length;
+                i++)
+                  NewsCardVertical(
+                    title: centralState
+                        .verticalViewNewsData.articles[i].title,
+                    image: centralState
+                        .verticalViewNewsData.articles[i].urlToImage,
+                    date: utils.parseDateTime(centralState
+                        .verticalViewNewsData.articles[i].publishedAt),
+                    author: centralState
+                        .verticalViewNewsData.articles[i].author,
+                    url:
+                    centralState.verticalViewNewsData.articles[i].url,
+                    content: centralState
+                        .verticalViewNewsData.articles[i].content,
+                  ),
+              ],
+            );
           },
         )
       ],
@@ -74,6 +77,8 @@ class _VerticalViewState extends State<VerticalView> {
   }
 }
 
+///Header of vertical view widget
+///Can be used to filter the news out acc. to sources
 class Header extends StatefulWidget {
   @override
   _HeaderState createState() => _HeaderState();
@@ -84,7 +89,10 @@ class _HeaderState extends State<Header> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
+
     _loadData();
+
   }
 
   //loads up the headline data of the vertical view
@@ -130,6 +138,7 @@ class _HeaderState extends State<Header> {
         ));
   }
 
+  ///scrollable bottom sheet
   _settingModalBottomSheet(context) {
     showModalBottomSheet(
         context: context,

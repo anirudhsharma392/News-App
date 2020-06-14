@@ -8,13 +8,11 @@ import 'package:news_app/ui/common/common_widgets.dart';
 import 'package:news_app/ui/news_vertical/news_card.dart';
 import 'package:news_app/utils/utils.dart';
 
-TextEditingController _controller = new TextEditingController();
+///search widget present at the topmost part
 class Search extends StatelessWidget {
-
-
   ///calls the search action on change of text
   void _searchAction(textFieldValue) {
-    centralState.searchField = textFieldValue;
+
     centralState.searchStatus = "loading";
 
     FetchNewsApi()
@@ -32,7 +30,6 @@ class Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-
       margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
@@ -65,8 +62,8 @@ class Search extends StatelessWidget {
             child: TextField(
               maxLines: 1,
               minLines: 1,
-              controller: _controller,
-              onChanged: _searchAction,
+              controller: centralState.controller,
+              onSubmitted: _searchAction,
               decoration: InputDecoration(
                   contentPadding: EdgeInsets.only(bottom: 3),
                   hintText: "Search Anything",
@@ -76,12 +73,11 @@ class Search extends StatelessWidget {
                   fillColor: Colors.white),
             ),
           ),
-          centralState.searchField == ""
+          (centralState.controller.text == "" || centralState.controller.text == null)
               ? Container()
               : InkWell(
                   onTap: () {
-                    centralState.searchField = "";
-                    _controller.clear();
+                    centralState.controller.clear();
                   },
                   child: Icon(
                     Icons.clear,
@@ -98,6 +94,8 @@ class Search extends StatelessWidget {
   }
 }
 
+///View of the search widget
+///only visible if search field is not empty
 class SearchView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -129,6 +127,8 @@ class SearchView extends StatelessWidget {
   }
 }
 
+///Header of search view widget
+///Can be used to sort the list
 class Header extends StatelessWidget {
   final Function refresh;
   Header({this.refresh});
@@ -166,6 +166,7 @@ class Header extends StatelessWidget {
         ));
   }
 
+  ///modal sheet (not scrollable)
   void _settingModalBottomSheet(context) {
     showModalBottomSheet(
         context: context,
@@ -206,13 +207,14 @@ class Header extends StatelessWidget {
                                     style: bodyStyle,
                                   ),
                                   onTap: () {
-                                    if(element=="None"){
-                                      centralState.sortBy=null;
-                                    }else{centralState.sortBy = element;}
-
+                                    if (element == "None") {
+                                      centralState.sortBy = null;
+                                    } else {
+                                      centralState.sortBy = element;
+                                    }
 
                                     Search()
-                                      .._searchAction(centralState.searchField);
+                                      .._searchAction(centralState.controller.text);
                                     Navigator.of(context).pop();
                                   },
                                 ))

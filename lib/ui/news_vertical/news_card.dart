@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:news_app/theme/style.dart';
 
 import 'news_card_closed.dart';
-import 'news_card_opened.dart';
+import '../common/news_card_opened.dart';
 
 class NewsCardVertical extends StatelessWidget {
   ///main title
@@ -38,6 +38,8 @@ class NewsCardVertical extends StatelessWidget {
 
         transitionType: ContainerTransitionType.fade,
       transitionDuration: transitionDuration,
+      openElevation: 0,
+      closedElevation: 0,
       openBuilder: (context, action) {
         return NewsCardOpened(title: title,image: image,date:date,url:url,content: content,author: author,);
       },

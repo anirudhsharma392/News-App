@@ -1,5 +1,6 @@
 class Utils{
 
+  ///parse the date time into correct format
   String parseDateTime(value) {
     try {
       final DateTime _dateTime = DateTime.parse(value);
@@ -12,6 +13,7 @@ class Utils{
     }
   }
 
+  ///return the month string from int
   String monthIntToString(int value) {
     String month;
     switch (value) {

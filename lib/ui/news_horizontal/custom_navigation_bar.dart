@@ -16,7 +16,8 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    getHorizontalViewData(centralState.selectedCategory);
+    Future.delayed(Duration(milliseconds: 500),()=>getHorizontalViewData(centralState.selectedCategory));
+
   }
 
   @override
