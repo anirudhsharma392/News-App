@@ -5,7 +5,7 @@ A simple news application made using flutter.
 
 ### ScreenShots:
 <p>
-    <img src="screenshots/recording.gif?raw=true"/ =250x550>
+    <img src="screenshots/recording.gif?raw=true =250x550"/>
 
 </p>
 
