@@ -18,7 +18,7 @@ A simple news application made using flutter.
 
 
 
-#APK File: apk_file/app-armeabi-v7a-release.apk
+#APK File: https://github.com/anirudhsharma392/News-App/blob/master/apk_file/app-armeabi-v7a-release.apk
 ## Custom Usage
 Just replace your token from https://newsapi.org/
 <br>
