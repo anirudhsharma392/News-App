@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
             action: () =>
                 SystemChannels.platform.invokeMethod('SystemNavigator.pop'),
             cancel: () {},
-            label: "You want to exit.");
+            label: "Do you want to exit ?");
     } else {
       centralState.searchField="";
       controller.clear();

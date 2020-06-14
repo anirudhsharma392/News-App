@@ -5,8 +5,10 @@ import 'package:http/http.dart' as http;
 //returns data if fetched successfully
 //returns 0 if caught some error
 class FetchNewsApi {
-  final String _country = "in";
+  ///Replace this
   static const _apiKey = "9d3dbcee50b54514ba1a76f502039d1b";
+  final String _country = "in";
+
 
   ///fetches news of every type available
   ///also can be sorted

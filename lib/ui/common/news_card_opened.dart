@@ -111,9 +111,12 @@ class NewsCardOpened extends StatelessWidget {
                 ),
                 Container(
                     margin: EdgeInsets.symmetric(vertical: 20),
-                    child: Footer(
-                      author: author ?? "",
-                      date: date ?? "",
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(height:18,width:180,alignment:Alignment.centerLeft,child: Text(author??"", style: TextStyle(fontSize: 14, color: red, fontWeight: FontWeight.w600),overflow: TextOverflow.ellipsis,)),
+                        Container(height:18,child: Center(child: Text(date??"", style: TextStyle(fontSize: 14, color: red, fontWeight: FontWeight.w600),overflow: TextOverflow.ellipsis,))),
+                      ],
                     )),
               ],
             ),
@@ -136,7 +139,7 @@ class NewsCardOpened extends StatelessWidget {
                         offset: Offset(0, 3), // changes position of shadow
                       ),
                     ],
-                    gradient: LinearGradient(colors: [red, darkBlue])),
+                    gradient: LinearGradient(colors: [red,darkBlue])),
                 child: Center(
                     child: Text(
                   "Excited ! Wanna know More about it ?",

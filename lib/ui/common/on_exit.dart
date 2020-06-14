@@ -23,7 +23,7 @@ class OnExit{
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  "Are you sure ?",
+                  "Are you sure !",
                   style: headingStyle,
                 ),
                 SizedBox(
