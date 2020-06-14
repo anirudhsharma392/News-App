@@ -112,6 +112,34 @@ class SearchView extends StatelessWidget {
         return Column(
           children: [
             Header(),
+            if(centralState.searchData.articles.length==0)Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 100,
+                  ),
+                  Icon(
+                    Icons.feedback,
+                    size: 100,
+                    color: label,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "Try Another Keyword !",
+                    style: TextStyle(
+                        color: label,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                ],
+              ),
+            ),
             for (int i = 0; i < centralState.searchData.articles.length; i++)
               NewsCardVertical(
                 title: centralState.searchData?.articles[i].title ?? "",
