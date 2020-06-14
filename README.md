@@ -11,7 +11,7 @@ A simple news application made using flutter.
 
 
 <p>
-    <img src="screenshots/Screenshot_2020-06-14-20-17-11-541_newsapp.news_app.jpg?raw=true"/>
+    <img src="screenshots/Screenshot_2020-06-14-20-17-11-541_newsapp.news_app.jpg?raw=true" width="200" height="400"/>
         <img src="screenshots/Screenshot_2020-06-14-20-17-34-494_newsapp.news_app.jpg?raw=true"/>
 
 </p>
