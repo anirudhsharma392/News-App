@@ -8,13 +8,15 @@ import 'package:news_app/ui/common/common_widgets.dart';
 import 'package:news_app/ui/news_vertical/news_card.dart';
 import 'package:news_app/utils/utils.dart';
 
+///Textfield controller
+TextEditingController controller = new TextEditingController();
+
 ///search widget present at the topmost part
 class Search extends StatelessWidget {
   ///calls the search action on change of text
   void _searchAction(textFieldValue) {
-
     centralState.searchStatus = "loading";
-
+    centralState.searchField=textFieldValue;
     FetchNewsApi()
       ..fetchNews(search: textFieldValue, sortBy: centralState.sortBy)
           .then((value) {
@@ -62,10 +64,11 @@ class Search extends StatelessWidget {
             child: TextField(
               maxLines: 1,
               minLines: 1,
-              controller: centralState.controller,
+              controller: controller,
+
               onSubmitted: _searchAction,
               decoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(bottom: 3),
+                  contentPadding: EdgeInsets.only(bottom: 2),
                   hintText: "Search Anything",
                   hintStyle: TextStyle(color: label, fontSize: 14),
                   border: InputBorder.none,
@@ -73,11 +76,12 @@ class Search extends StatelessWidget {
                   fillColor: Colors.white),
             ),
           ),
-          (centralState.controller.text == "" || centralState.controller.text == null)
+          (centralState.searchField == "" || centralState.searchField== null)
               ? Container()
               : InkWell(
                   onTap: () {
-                    centralState.controller.clear();
+                    centralState.searchField="";
+                    controller.clear();
                   },
                   child: Icon(
                     Icons.clear,
@@ -214,7 +218,7 @@ class Header extends StatelessWidget {
                                     }
 
                                     Search()
-                                      .._searchAction(centralState.controller.text);
+                                      .._searchAction(centralState.searchField);
                                     Navigator.of(context).pop();
                                   },
                                 ))

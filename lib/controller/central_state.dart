@@ -47,7 +47,7 @@ abstract class CentralStateBase with Store {
   @observable
   String sortBy;
   @observable
-  TextEditingController controller = new TextEditingController();
+  String searchField="";
   @observable
   String searchStatus = "loading";
   NewsData searchData;

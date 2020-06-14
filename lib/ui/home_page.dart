@@ -12,8 +12,8 @@ import 'news_vertical/news_vertical.dart';
 class HomePage extends StatelessWidget {
   //checks if text field is empty or not if not then makes it empty
   Future exit(context) {
-    if (centralState.controller.text == "" ||
-        centralState.controller.text == null) {
+    if (centralState.searchField == "" ||
+        centralState.searchField == null) {
       OnExit()
         ..askConfirmation(
             context: context,
@@ -22,7 +22,8 @@ class HomePage extends StatelessWidget {
             cancel: () {},
             label: "You want to exit.");
     } else {
-      centralState.controller.clear();
+      centralState.searchField="";
+      controller.clear();
     }
   }
 
@@ -40,8 +41,8 @@ class HomePage extends StatelessWidget {
           builder: (_) => Column(
             children: [
               Search(),
-              (centralState.controller.text == "" ||
-                      centralState.controller.text == null)
+              (centralState.searchField == "" ||
+                  centralState.searchField == null)
                   ? Column(
                       children: [HorizontalView(), VerticalView()],
                     )

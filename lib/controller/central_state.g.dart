@@ -89,18 +89,18 @@ mixin _$CentralState on CentralStateBase, Store {
     });
   }
 
-  final _$controllerAtom = Atom(name: 'CentralStateBase.controller');
+  final _$searchFieldAtom = Atom(name: 'CentralStateBase.searchField');
 
   @override
-  TextEditingController get controller {
-    _$controllerAtom.reportRead();
-    return super.controller;
+  String get searchField {
+    _$searchFieldAtom.reportRead();
+    return super.searchField;
   }
 
   @override
-  set controller(TextEditingController value) {
-    _$controllerAtom.reportWrite(value, super.controller, () {
-      super.controller = value;
+  set searchField(String value) {
+    _$searchFieldAtom.reportWrite(value, super.searchField, () {
+      super.searchField = value;
     });
   }
 
@@ -142,7 +142,7 @@ selectedCategory: ${selectedCategory},
 verticalViewNewsData: ${verticalViewNewsData},
 selectedSource: ${selectedSource},
 sortBy: ${sortBy},
-controller: ${controller},
+searchField: ${searchField},
 searchStatus: ${searchStatus},
 enableSearch: ${enableSearch}
     ''';
