@@ -5,20 +5,23 @@ A simple news application made using flutter.
 
 ### ScreenShots:
 <p>
-    <img src="https://github.com/anirudhsharma392/Slider-Button/blob/master/screenshots/button_3.gif?raw=true"/>
+    <img src="screenshots/recording.gif?raw=true"  width="400" height="600"/>
 
 </p>
 
 
 <p>
-    <img src="https://github.com/anirudhsharma392/Slider-Button/blob/master/screenshots/button_1.gif?raw=true"/>
+    <img src="screenshots/Screenshot_2020-06-14-20-17-11-541_newsapp.news_app.jpg?raw=true" width="300" height="600"/>
+        <img src="screenshots/Screenshot_2020-06-14-20-17-34-494_newsapp.news_app.jpg?raw=true" width="300" height="600"/>
 
 </p>
 
 
 ## Custom Usage
 Just replace your token from https://newsapi.org/
+<br>
 Token is presesnt in lib/repository/detchNewsApi.dart
+<br>
 flutter run
 
 
