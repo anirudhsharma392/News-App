@@ -40,7 +40,7 @@ class NewsCardHorizontal extends StatelessWidget {
   Widget build(BuildContext context) {
     return OpenContainer(
       transitionType: ContainerTransitionType.fadeThrough,
-      transitionDuration: const Duration(milliseconds: 500),
+      transitionDuration: transitionDuration,
 
       openBuilder: (context, action) {
         return NewsCardOpened(title: title,image: image,date:date,url:url,content: content,author: author,);

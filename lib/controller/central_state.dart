@@ -1,5 +1,6 @@
 import 'package:mobx/mobx.dart';
 import 'package:news_app/model/news_data.dart';
+import 'package:news_app/model/sources.dart';
 
 part 'central_state.g.dart';
 
@@ -13,23 +14,31 @@ abstract class CentralStateBase with Store {
 
   ///list of available categories
   final List category = [
+    "General",
     "Business",
     "Sports",
     "Entertainment",
-    "Fashion",
-    "Industry"
+    "Health",
+    "Science",
+        "Technology"
   ];
   //holds the value of selected category
   @observable
-  String selectedCategory = "Business";
+  String selectedCategory = "General";
 
   ///Vertical news fields
   @observable
   NewsData verticalViewNewsData;
 
+  Sources source;
+  @observable
+  String selectedSource;
+  String selectedSourceId;
 
   ///searching news variables
-
+  List<String> sortByList = ["None", "Relevancy", "Popularity", "PublishedAt"];
+  @observable
+  String sortBy;
   @observable
   String searchField = "";
   @observable
@@ -42,6 +51,6 @@ abstract class CentralStateBase with Store {
 CentralState centralState = new CentralState();
 
 ///RUN TO REFRESH
-///if you update state management variable
+//if you update state management variable
 //Command:
 //flutter packages pub run build_runner build

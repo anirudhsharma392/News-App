@@ -42,6 +42,53 @@ mixin _$CentralState on CentralStateBase, Store {
     });
   }
 
+  final _$verticalViewNewsDataAtom =
+      Atom(name: 'CentralStateBase.verticalViewNewsData');
+
+  @override
+  NewsData get verticalViewNewsData {
+    _$verticalViewNewsDataAtom.reportRead();
+    return super.verticalViewNewsData;
+  }
+
+  @override
+  set verticalViewNewsData(NewsData value) {
+    _$verticalViewNewsDataAtom.reportWrite(value, super.verticalViewNewsData,
+        () {
+      super.verticalViewNewsData = value;
+    });
+  }
+
+  final _$selectedSourceAtom = Atom(name: 'CentralStateBase.selectedSource');
+
+  @override
+  String get selectedSource {
+    _$selectedSourceAtom.reportRead();
+    return super.selectedSource;
+  }
+
+  @override
+  set selectedSource(String value) {
+    _$selectedSourceAtom.reportWrite(value, super.selectedSource, () {
+      super.selectedSource = value;
+    });
+  }
+
+  final _$sortByAtom = Atom(name: 'CentralStateBase.sortBy');
+
+  @override
+  String get sortBy {
+    _$sortByAtom.reportRead();
+    return super.sortBy;
+  }
+
+  @override
+  set sortBy(String value) {
+    _$sortByAtom.reportWrite(value, super.sortBy, () {
+      super.sortBy = value;
+    });
+  }
+
   final _$searchFieldAtom = Atom(name: 'CentralStateBase.searchField');
 
   @override
@@ -92,6 +139,9 @@ mixin _$CentralState on CentralStateBase, Store {
     return '''
 horizontalViewNewsData: ${horizontalViewNewsData},
 selectedCategory: ${selectedCategory},
+verticalViewNewsData: ${verticalViewNewsData},
+selectedSource: ${selectedSource},
+sortBy: ${sortBy},
 searchField: ${searchField},
 searchStatus: ${searchStatus},
 enableSearch: ${enableSearch}

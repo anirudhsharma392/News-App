@@ -49,13 +49,13 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
         onTap: () => getHorizontalViewData(value),
         child: Observer(
           builder: (_) => Container(
-            margin: EdgeInsets.symmetric(
-                horizontal: cardMargin * 4, vertical: cardMargin),
+
+            margin: EdgeInsets.only(left: cardMargin * 4,right: cardMargin * 4,bottom: cardMargin ),
             child: Text(
               value,
               style: value == centralState.selectedCategory
                   ? headingStyle
-                  : labelStyle,
+                  : subHeadingStyle,
             ),
           ),
         ));

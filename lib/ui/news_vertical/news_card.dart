@@ -36,12 +36,13 @@ class NewsCardVertical extends StatelessWidget {
   Widget build(BuildContext context) {
     return OpenContainer(
 
-        transitionType: ContainerTransitionType.fadeThrough,
-      transitionDuration: const Duration(milliseconds: 500),
+        transitionType: ContainerTransitionType.fade,
+      transitionDuration: transitionDuration,
       openBuilder: (context, action) {
         return NewsCardOpened(title: title,image: image,date:date,url:url,content: content,author: author,);
       },
       closedBuilder: (context, action) {
+        FocusScope.of(context).requestFocus(FocusNode());
         return NewsCardClosed(title: title,image: image,date:date,author: author,);
       },
     );

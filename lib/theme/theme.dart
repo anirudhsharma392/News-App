@@ -4,7 +4,7 @@ import 'package:news_app/theme/style.dart';
 final ThemeData themeData = ThemeData().copyWith(
     brightness: Brightness.light,
     primaryColor: red,
-    accentColor: lightBlue,
+    accentColor: red,
     buttonColor: darkBlue,
     backgroundColor: white,
     cardColor: white

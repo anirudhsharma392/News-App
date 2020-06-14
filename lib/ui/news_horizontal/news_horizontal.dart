@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:news_app/controller/central_state.dart';
 import 'package:news_app/theme/style.dart';
+import 'package:news_app/ui/common/common_widgets.dart';
 import 'package:news_app/ui/news_horizontal/news_card.dart';
 import 'package:news_app/utils/utils.dart';
 
@@ -24,31 +25,7 @@ class HorizontalView extends StatelessWidget {
                           child: Center(child: CircularProgressIndicator()),
                         )
                       : centralState.horizontalViewNewsData.articles.length == 0
-                          ? Center(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.error_outline,
-                                    size: 100,
-                                    color: label,
-                                  ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Text(
-                                    "Something went wrong",
-                                    style: TextStyle(
-                                        color: label,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                ],
-                              ),
-                            )
+                          ? ErrorScreenComponent()
                           : Row(
                               children: [
                                 for (int i = 0;

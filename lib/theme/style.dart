@@ -12,13 +12,14 @@ const double cardMargin = 5;
 const double cardRadius = 10;
 const double cardHeight = 100;
 const double cardElevation = 4;
-
+const transitionDuration = const Duration(milliseconds: 500);
 ///text styles
 const headingStyle =
     TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.w700);
 const bodyStyle =
-    TextStyle(fontSize: 15, color: Colors.black, fontWeight: FontWeight.w400);
+    TextStyle(fontSize: 14, color: Colors.black, fontWeight: FontWeight.w400,fontFamily: "Montserrat");
 
-const labelStyle = TextStyle(color: label, fontWeight: FontWeight.w600);
+const subHeadingStyle = TextStyle(fontSize: 14,color: label, fontWeight: FontWeight.w600);
+const labelStyle = TextStyle(fontSize: 12,color: label, fontWeight: FontWeight.w600);
 
 const noDataImage = "https://cdn.dribbble.com/users/1449854/screenshots/4136663/no_data_found.png";

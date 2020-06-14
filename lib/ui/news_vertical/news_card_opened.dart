@@ -33,7 +33,7 @@ class NewsCardOpened extends StatelessWidget {
 
   _launchURL() async {
     if (await canLaunch(url)) {
-      await launch(url,forceWebView: true);
+      await launch(url, forceWebView: true);
     } else {
       throw 'Could not launch $url';
     }
@@ -90,7 +90,8 @@ class NewsCardOpened extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      title,
+                      title ?? "",
+                      maxLines: 3,
                       style: headingStyle,
                     ),
                     SizedBox(
@@ -100,7 +101,7 @@ class NewsCardOpened extends StatelessWidget {
                       height: _size.height * 0.3,
                       child: SingleChildScrollView(
                         child: Text(
-                          content,
+                          content ?? "",
                           style: bodyStyle,
                           textAlign: TextAlign.justify,
                         ),
@@ -109,9 +110,11 @@ class NewsCardOpened extends StatelessWidget {
                   ],
                 ),
                 Container(
-                  margin: EdgeInsets.symmetric(vertical: 20),
-                  child:Footer(author: author,date: date,)
-                ),
+                    margin: EdgeInsets.symmetric(vertical: 20),
+                    child: Footer(
+                      author: author ?? "",
+                      date: date ?? "",
+                    )),
               ],
             ),
           ),

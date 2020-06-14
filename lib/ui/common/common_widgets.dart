@@ -38,12 +38,44 @@ class Footer extends StatelessWidget {
   Footer({this.date,this.author});
   @override
   Widget build(BuildContext context) {
-    return    Row(
+    return  Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Expanded(child: Text(author??"", style: labelStyle,overflow: TextOverflow.ellipsis,)),
-        Expanded(child: Text(date??"", style: labelStyle,textAlign: TextAlign.end,)),
+        Container(height:18,width:100,alignment:Alignment.centerLeft,child: Text(author??"", style: labelStyle,overflow: TextOverflow.ellipsis,)),
+        Container(height:18,child: Center(child: Text(date??"", style: labelStyle,overflow: TextOverflow.ellipsis,))),
       ],
+    );
+  }
+}
+
+
+class ErrorScreenComponent extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.error_outline,
+            size: 100,
+            color: label,
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            "Something went wrong",
+            style: TextStyle(
+                color: label,
+                fontSize: 20,
+                fontWeight: FontWeight.w600),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+        ],
+      ),
     );
   }
 }

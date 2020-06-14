@@ -17,68 +17,73 @@ class NewsCardClosed extends StatelessWidget {
   ///Author's name
   final String author;
 
+  ///perform ontap function
+  final Function onTap;
   NewsCardClosed(
-      {this.title = "", this.image, this.date = "", this.author = ""});
+      {this.onTap,this.title = "", this.image, this.date = "", this.author = ""});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        margin: EdgeInsets.all(cardMargin),
-        child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(cardRadius),
-          ),
-          elevation: cardElevation,
-          child: Container(
-            height: cardHeight,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                image != null
-                    ? ClipRRect(
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(cardRadius),
-                            bottomLeft: Radius.circular(cardRadius)),
-                        child: Image.network(
-                          image,
-                          width: cardHeight,
-                          fit: BoxFit.cover,
-                        ),
-                      )
-                    : ClipRRect(
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(cardRadius),
-                            bottomLeft: Radius.circular(cardRadius)),
-                        child: Image.network(
-                          noDataImage,
-                          width: cardHeight,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.all(cardMargin * 2),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          child: Text(title ?? "",
-                              overflow: TextOverflow.fade, style: bodyStyle),
-                        ),
-                        SizedBox(
-                          height: cardMargin,
-                        ),
-                        Footer(
-                          author: author,
-                          date: date,
-                        )
-                      ],
-                    ),
-                  ),
-                )
-              ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+          margin: EdgeInsets.all(cardMargin),
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(cardRadius),
             ),
-          ),
-        ));
+            elevation: cardElevation,
+            child: Container(
+              height: cardHeight,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  image != null
+                      ? ClipRRect(
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(cardRadius),
+                              bottomLeft: Radius.circular(cardRadius)),
+                          child: Image.network(
+                            image,
+                            width: cardHeight,
+                            fit: BoxFit.cover,
+                          ),
+                        )
+                      : ClipRRect(
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(cardRadius),
+                              bottomLeft: Radius.circular(cardRadius)),
+                          child: Image.network(
+                            noDataImage,
+                            width: cardHeight,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                  Expanded(
+                    child: Container(
+                      margin: EdgeInsets.all(cardMargin * 2),
+                      child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Text(title ?? "",
+                                overflow: TextOverflow.fade, style: bodyStyle),
+                          ),
+                          SizedBox(
+                            height: cardMargin,
+                          ),
+                          Footer(
+                            author: author,
+                            date: date,
+                          )
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          )),
+    );
   }
 }

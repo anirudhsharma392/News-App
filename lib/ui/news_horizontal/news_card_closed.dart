@@ -59,6 +59,7 @@ class NewsCardClosed extends StatelessWidget {
                   child: Container(
                     margin: EdgeInsets.all(cardMargin * 2),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
