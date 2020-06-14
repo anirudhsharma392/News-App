@@ -5,14 +5,14 @@ A simple news application made using flutter.
 
 ### ScreenShots:
 <p>
-    <img src="screenshots/recording.gif=true?raw | width=100"/>
+    <img src="screenshots/recording.gif=true?raw" width="300" height="600"/>
 
 </p>
 
 
 <p>
-    <img src="screenshots/Screenshot_2020-06-14-20-17-11-541_newsapp.news_app.jpg?raw=true" width="200" height="400"/>
-        <img src="screenshots/Screenshot_2020-06-14-20-17-34-494_newsapp.news_app.jpg?raw=true"/>
+    <img src="screenshots/Screenshot_2020-06-14-20-17-11-541_newsapp.news_app.jpg?raw=true" width="300" height="600"/>
+        <img src="screenshots/Screenshot_2020-06-14-20-17-34-494_newsapp.news_app.jpg?raw=true" width="300" height="600"/>
 
 </p>
 
