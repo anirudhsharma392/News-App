@@ -18,11 +18,12 @@ A simple news application made using flutter.
 
 
 
-#APK File: https://github.com/anirudhsharma392/News-App/blob/master/apk_file/app-armeabi-v7a-release.apk
-## Custom Usage
+## APK File: https://github.com/anirudhsharma392/News-App/blob/master/apk_file/app-armeabi-v7a-release.apk
+# Custom Usage
+
 #### Before running the application just replace your token from https://newsapi.org/
 <br>
-##### Token is present in lib/repository/detchNewsApi.dart
+#### Token is present in lib/repository/detchNewsApi.dart
 <br>
 
 
