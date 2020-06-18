@@ -19,8 +19,6 @@ A simple news application made using flutter.
 # Custom Usage
 
 #### Before running the application just replace your token from https://newsapi.org/
-<br>
-
 #### Token is present in lib/repository/detchNewsApi.dart
 
 ## APK File: 
